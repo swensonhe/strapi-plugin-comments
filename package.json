@@ -3,7 +3,7 @@
   "version": "2.2.15-swensonHe",
 	
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/SwenshonHe"
+		"registry": "https://npm.pkg.github.com"
 	},
   "description": "Strapi - Comments plugin",
   "strapi": {
