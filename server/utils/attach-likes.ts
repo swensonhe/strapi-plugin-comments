@@ -12,9 +12,14 @@ const attachLikesToCommentObject = (comment: Comment, likes: any[]) => {
     );
     return comment;
   }
-  comment.likes = likes.filter(
-    (like) => like.commentID === comment.id.toString()
-  );
+	if(likes?.length > 0) {
+		comment.likes = likes.filter(
+			(like) => like.commentID === comment.id.toString()
+		);
+
+	}else{
+		comment.likes = [];
+	}
   return attachLikesToComments(comment.children, likes);
 };
 
