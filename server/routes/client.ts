@@ -1,6 +1,6 @@
-import { StrapiRoute } from "strapi-typed";
 
-const routes: StrapiRoute[] = [
+
+const routes:  any[] = [
   {
     method: "GET",
     path: "/:relation",
