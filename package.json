@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/VirtusLab-Open-Source/strapi-plugin-comments"
+    "url": "https://github.com/swensonhe/strapi-plugin-comments"
   },
   "dependencies": {
     "@strapi/plugin-graphql": "^4.13.6",
