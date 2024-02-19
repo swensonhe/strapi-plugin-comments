@@ -2,7 +2,7 @@ name: Publish Package to Github Packages
 on:
   push:
     branches:
-      - 'npm-publish'
+      - 'main'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: '18.x'
           always-auth: true
-          registry-url: 'https://npm.pkg.github.com/'
+          registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           # scope: '@swensonhe'
       - run: yarn
       - run: yarn publish:latest
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
