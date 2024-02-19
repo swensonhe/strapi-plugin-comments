@@ -107,7 +107,7 @@ const controllers: IControllerClient = {
     const flatResult: any = await this.findAllFlat(ctx);
     const commentsIDs = idExtractor(flatResult?.data);
 		
-    const likes: any = this.getService<IServiceCommon>("common").fetchCommentsLikes(commentsIDs);
+    const likes: any = await this.getService<IServiceCommon>("common").fetchCommentsLikes(commentsIDs);
 
     return attachLikesToComments(
         flatResult?.data as Comment[],
