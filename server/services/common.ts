@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {replaceProfanities, isProfane} from "no-profanity";
 
 import {
@@ -55,7 +56,7 @@ import {
  */
 
 const PAGE_SIZE = 10;
-declare var strapi: StrapiContext["strapi"] | any;
+declare var strapi:  any;
 
 export = ({ strapi }: StrapiContext): IServiceCommon => ({
   async getConfig<T>(

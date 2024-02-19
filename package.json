@@ -1,6 +1,10 @@
 {
-  "name": "strapi-plugin-comments",
-  "version": "2.2.15",
+  "name": "@swensonhe/strapi-plugin-comments",
+  "version": "2.2.15.6",
+	
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
   "description": "Strapi - Comments plugin",
   "strapi": {
     "name": "comments",
@@ -24,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/VirtusLab-Open-Source/strapi-plugin-comments"
+    "url": "https://github.com/swensonhe/strapi-plugin-comments.git"
   },
   "dependencies": {
     "@strapi/plugin-graphql": "^4.13.6",

@@ -7,14 +7,26 @@ import { Comment } from "../../types";
  */
 const attachLikesToCommentObject = (comment: Comment, likes: any[]) => {
   if (!comment.children || comment.children.length === 0) {
-    comment.likes = likes.filter(
-      (like) => like.commentID === comment.id.toString()
-    );
+
+      if (likes?.length > 0){
+          comment.likes = likes.filter(
+              (like) => like.commentID === comment.id.toString()
+          );
+      }else {
+            comment.likes = [];
+      }
+
+
     return comment;
   }
-  comment.likes = likes.filter(
-    (like) => like.commentID === comment.id.toString()
-  );
+	if(likes?.length > 0) {
+		comment.likes = likes.filter(
+			(like) => like.commentID === comment.id.toString()
+		);
+
+	}else{
+		comment.likes = [];
+	}
   return attachLikesToComments(comment.children, likes);
 };
 

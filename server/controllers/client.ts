@@ -11,21 +11,13 @@ import {
   ToBeFixed,
   UpdateCommentPayload,
 } from "../../types";
-import {
-  StrapiRequestContext,
-  StrapiPaginatedResponse,
-  IStrapi,
-} from "strapi-typed";
+import {IStrapi, StrapiPaginatedResponse, StrapiRequestContext,} from "strapi-typed";
 
-import {
-  assertNotEmpty,
-  assertParamsPresent,
-  getPluginService,
-} from "../utils/functions";
-import { parseParams, throwError } from "./utils/functions";
-import { flatInput } from "./utils/parsers";
+import {assertNotEmpty, assertParamsPresent, getPluginService,} from "../utils/functions";
+import {parseParams, throwError} from "./utils/functions";
+import {flatInput} from "./utils/parsers";
 import PluginError from "../utils/error";
-import { AUTHOR_TYPE } from "../utils/constants";
+import {AUTHOR_TYPE} from "../utils/constants";
 import idExtractor from "../utils/id-extractor";
 import attachLikesToComments from "../utils/attach-likes";
 import extractCollectionName from "../utils/extract-collection-name";
@@ -103,11 +95,10 @@ const controllers: IControllerClient = {
     const flatResult: any = await this.findAllFlat(ctx);
     const commentsIDs = idExtractor(flatResult?.data);
     const likes = await this.getService<IServiceCommon>("common").fetchCommentsLikes(commentsIDs);
-    const commentsWithLikes = attachLikesToComments(
-      hierarchyResult as Comment[],
-      likes
+    return attachLikesToComments(
+        hierarchyResult as Comment[],
+        likes
     );
-    return commentsWithLikes;
   },
   async findAllFlatWithLikes(
     this: IControllerClient,
@@ -116,13 +107,12 @@ const controllers: IControllerClient = {
     const flatResult: any = await this.findAllFlat(ctx);
     const commentsIDs = idExtractor(flatResult?.data);
 		
-    const likes: any = this.getService<IServiceCommon>("common").fetchCommentsLikes(commentsIDs);
-			
-    const commentsWithLikes = attachLikesToComments(
-      flatResult?.data as Comment[],
-      likes
+    const likes: any = await this.getService<IServiceCommon>("common").fetchCommentsLikes(commentsIDs);
+
+    return attachLikesToComments(
+        flatResult?.data as Comment[],
+        likes
     );
-    return commentsWithLikes;
   },
   async findAllPerAuthor(
     this: IControllerClient,
