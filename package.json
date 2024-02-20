@@ -1,6 +1,6 @@
 {
   "name": "@swensonhe/strapi-plugin-comments",
-  "version": "2.2.15.6",
+  "version": "2.2.15.7",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },	

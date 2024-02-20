@@ -25,7 +25,7 @@ export const findOrCreateOneTag = async (tag: string) => {
     },
   });
 };
-export const findOrCreateManyTags = (tags: any) => {
+export const findOrCreateManyTags = async (tags: any) => {
   const promises = tags.map((tag: any) => findOrCreateOneTag(tag));
   return Promise.all(promises);
 };
@@ -36,7 +36,7 @@ export const extractMentions = (content: string) => {
   mentions = [...new Set(mentions)];
   return mentions;
 };
-export const findMention = (mention: string) => {
+export const findMention = async (mention: string) => {
   return strapi.db.query("plugin::users-permissions.user").findOne({
     where: {
       andrewUser: { $eq: mention },
@@ -44,7 +44,7 @@ export const findMention = (mention: string) => {
   });
 };
 
-export const findMentions = (mentions: string[]) => {
+export const findMentions = async (mentions: string[]) => {
   return strapi.db.query("plugin::users-permissions.user").findMany({
     where: {
       andrewUser: { $in: mentions },
