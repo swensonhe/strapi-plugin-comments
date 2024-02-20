@@ -1,10 +1,9 @@
 {
   "name": "@swensonhe/strapi-plugin-comments",
   "version": "2.2.15.7",
-	
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },	
   "description": "Strapi - Comments plugin",
   "strapi": {
     "name": "comments",
