@@ -145,7 +145,7 @@ export = ({ strapi }: StrapiContext): IServiceClient => ({
         throw new PluginError(400, "Invalid approval status");
       }
       const entity = await strapi.db
-        .query<Comment>(getModelUid("comment"))
+        .query<any>(getModelUid("comment"))
         .create({
           data: {
             ...rest,
@@ -157,6 +157,8 @@ export = ({ strapi }: StrapiContext): IServiceClient => ({
           },
           populate: {
             authorUser: true,
+						tags: true,
+						mentions: true,
           },
         });
       const sanitizedEntity = this.getCommonService().sanitizeCommentEntity({
